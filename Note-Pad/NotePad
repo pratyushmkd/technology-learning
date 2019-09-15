@@ -1,0 +1,57 @@
+Data structure using java
+==========================
+# Data structure is a way to organize data in a effective way for better usability.
+# RDBMS use B-tree index for data retrival.
+# Hashing is used for compiler for look up identifiers(name of class,method or variable).
+# Data structure of 2 types : 1) linear(array,linked list,stacks,queues) and 2) non-linear(graph and trees) 
+# Different operation allowed are : 1) insertions 2) deletions 3)taversal (access each data item) 
+4) searching (location) 5)sorting
+
+
+
+
+Java menory mangement
+===================
+#Heap is the area where java object reside. This is created when JVM start up and may increase or decrease in size while application runs.
+# Heap is sometimes divided inti two type as young space(nursery) and old space. Nursery is a party of heap reserved for allocation of new objects. but when nursery becomes full a special young collection move all objects that have lived long enough in nursery to old space. when old space bcomes full garbage is collected there by a process called old collection.
+# A young collection frees a given amount of memory much faster then an old collection or a grabadge collection of single-generation heap (a heap without a nursery).
+#Keep area contains the most recently allocated objects in the nursery and is not garbadge collected until the next young collection.
+#Object Allocation : During object allocation, the JRockit JVM distinguishes between small and large objects. The limit for when an object is considered large depends on the JVM version, the heap size, the garbage collection strategy and the platform used, but is usually somewhere between 2 and 128 kB. 
+Small objects are allocated in thread local areas (TLAs). The thread local areas are free chunks reserved from the heap and given to a Java thread for exclusive use. The thread can then allocate objects in its TLA without synchronizing with other threads. When the TLA becomes full, the thread simply requests a new TLA. The TLAs are reserved from the nursery if such exists, otherwise they are reserved anywhere in the heap.
+
+Large objects that don’t fit inside a TLA are allocated directly on the heap. When a nursery is used, the large objects are allocated directly in old space. Allocation of large objects requires more synchronization between the Java threads, although the JRockit JVM uses a system of caches of free chunks of different sizes to reduce the need for synchronization and improve the allocation speed.
+
+#Garbage Collection : 
+The Mark and Sweep Model : The JRockit JVM uses the mark and sweep garbage collection model for performing garbage collections of the whole heap. A mark and sweep garbage collection consists of two phases, the mark phase and the sweep phase.
+
+During the mark phase all objects that are reachable from Java threads, native handles and other root sources are marked as alive, as well as the objects that are reachable from these objects and so forth. This process identifies and marks all objects that are still used, and the rest can be considered garbage.
+
+During the sweep phase the heap is traversed to find the gaps between the live objects. These gaps are recorded in a free list and are made available for new object allocation.
+
+The JRockit JVM uses two improved versions of the mark and sweep model. One is mostly concurrent mark and sweep and the other is parallel mark and sweep. You can also mix the two strategies, running for example mostly concurrent mark and parallel sweep.
+
+
+
+
+
+
+
+Exception handling with method override in java
+===================================
+Case 1 : If SuperClass doesn’t declare any exception and subclass declare checked exception : CE:"unreported exception IOException; must be caught or declared to be thrown".
+Case 2 : If SuperClass doesn’t declare any exception and SubClass declare Unchecked exception. no Exception.
+Case 3 : If SuperClass declares an exception and SubClass declares exceptions other than the child exception of the SuperClass declared Exception : CE : method() in SubClass cannot override method() in SuperClass,
+Case 4 : If SuperClass declares an exception and SubClass declares an child exception of the SuperClass declared Exception. : No Exception.
+
+Point 1 : In Java only throwable objects (Throwable objects are instances of any subclass of the Throwable class) can be thrown as exception. So basic data type can no be thrown at all.
+
+
+
+Core Java
+==============
+# Use of super keyword in static member is not allowed.
+# private and static cant be overridden
+# constructor overloading : to define different object ceation logic.
+# constructor chaining :  calling one constructor from other constructor by using this() and super().
+# this() cant be placed in all constructor, at least one constructor must be left with super(). else CE: recursive constructor ivocation
+# 
