@@ -1,3 +1,25 @@
+Angular (2010)
+=================
+# Single page aplication
+# Has modulat approach
+# Re-usable code
+# Development quicker and easier
+# Uint testable
+
+@Semantic versioning :- x.x.x [major.minor.fix(patch)}
+
+@Requirements : Node/Npm/Angular CLI/Text Editor-VS code
+
+# Angular app - aone or more modules
+# Module - one or more components and servise
+# components - Html templarte and class (control logic)
+# service -business logic
+# Module interact and ultimately render the view in the browser
+#
+
+# package.json :- contains dependency which are liberies and modules that required for application to work. 
+
+
 Data structure using java
 ==========================
 # Data structure is a way to organize data in a effective way for better usability.
